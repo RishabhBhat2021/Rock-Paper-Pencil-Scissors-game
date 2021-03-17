@@ -131,14 +131,32 @@ def open_rules():
     top2_label2 = Label(top2,text="+20 Points for Winning a Round",bg="green",width=28,font=80).pack()
     top2_label3 = Label(top2,text="-10 Points for Losing a Round",bg="red",width=28,font=80).pack()
 
-button_rock = Button(root,text="Rock",font=80,width=17,height=5,command=lambda:button_click("Rock"))
-button_paper = Button(root,text="Paper",font=80,width=17,height=5,command=lambda:button_click("Paper"))
-button_pencil = Button(root,text="Pencil",font=80,width=17,height=5,command=lambda:button_click("Pencil"))
-button_scissor = Button(root,text="Scissor",font=80,width=17,height=5,command=lambda:button_click("Scissor"))
-button_reset = Button(root,text="New Game",font=60,width=10,height=1,command=reset_game)
-button_credits = Button(root,text="Credits",font=60,width=10,height=1,command=open)
-button_quit = Button(root,text="Quit",font=60,width=10,height=1,command=root.destroy)
-button_game_rules = Button(root,text="Game Rules",font=60,width=10,height=1,command=open_rules)
+image_size = (200,130)
+
+rock_image = Image.open("images/rock.png")
+rock_image = rock_image.resize(image_size, Image.ANTIALIAS)
+rock_image = ImageTk.PhotoImage(rock_image)
+
+paper_image = Image.open("images/paper.png")
+paper_image = paper_image.resize(image_size, Image.ANTIALIAS)
+paper_image = ImageTk.PhotoImage(paper_image)
+
+pencil_image = Image.open("images/pencil.png")
+pencil_image = pencil_image.resize(image_size, Image.ANTIALIAS)
+pencil_image = ImageTk.PhotoImage(pencil_image)
+
+scissors_image = Image.open("images/scissors.png")
+scissors_image = scissors_image.resize(image_size, Image.ANTIALIAS)
+scissors_image = ImageTk.PhotoImage(scissors_image)
+
+button_rock = Button(root, text="Rock", image=rock_image, font=80, command=lambda:button_click("Rock"))
+button_paper = Button(root, text="Paper", image=paper_image, font=80, command=lambda:button_click("Paper"))
+button_pencil = Button(root, text="Pencil", image=pencil_image, font=80, command=lambda:button_click("Pencil"))
+button_scissor = Button(root, text="Scissor", image=scissors_image, font=80, command=lambda:button_click("Scissor"))
+button_reset = Button(root, text="New Game", font=60,width=10,height=1, command=reset_game)
+button_credits = Button(root, text="Credits", font=60,width=10,height=1, command=open)
+button_quit = Button(root, text="Quit", font=60, width=10,height=1, command=root.destroy)
+button_game_rules = Button(root, text="Game Rules", font=60,width=10,height=1, command=open_rules)
 
 button_rock.grid(row=6,column=0,padx=5,pady=5)
 button_paper.grid(row=6,column=1,padx=5,pady=5)
